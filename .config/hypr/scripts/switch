@@ -1,0 +1,88 @@
+#!/bin/bash
+
+## Files
+CONFIG="$HOME/.config/wofi/config"
+STYLE="$HOME/.config/wofi/style.css"
+COLORS="$HOME/.config/wofi/colors"
+
+
+DIR=$HOME/.config/hypr/images/gallery/
+PICS=($(ls ${DIR}))
+
+RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
+
+if [[ $(pidof swaybg) ]]; then
+  pkill swaybg
+fi
+
+## Wofi Command
+wofi_command="wofi --show dmenu \
+			--prompt 'choose..'
+			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
+			--width=300 --height=400 \
+			--cache-file=/dev/null \
+			--hide-scroll --no-actions \
+			--define=matching=fuzzy"
+
+menu(){
+printf "1. Apple\n" 
+printf "2. Book\n" 
+printf "3. Town\n" 
+printf "4. Fog\n" 
+printf "5. River\n"
+printf "6. Wood\n"
+printf "7. Water1\n"
+printf "8. Water2\n"
+printf "9. neon\n"
+printf "10. random"
+}
+
+swww query || swww-daemon
+
+main() {
+choice=$(menu | ${wofi_command} | cut -d. -f1)
+case $choice in
+1)
+    swww img ${DIR}/apple.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+2)
+    swww img ${DIR}/a_book_and_coffee_on_a_table.png --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+3)
+    swww img ${DIR}/a_castle_on_a_hill_with_fog_with_Eltz_Castle_in_the_background.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+4)
+    swww img ${DIR}/a_foggy_forest_with_trees_and_bushes.png --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+5)
+    swww img ${DIR}/a_river_running_through_a_forest.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+6)
+    swww img ${DIR}/a_wooden_stairs_in_a_forest.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+7)
+    swww img ${DIR}/sand.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+8)
+    swww img ${DIR}/snow.png --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+9)
+    swww img ${DIR}/neon.jpg --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+10)
+    swww img ${DIR}/${RANDOMPICS} --transition-fps 30 --transition-type any --transition-duration 3
+    return
+    ;;
+esac
+}
+
+killall -f || main
