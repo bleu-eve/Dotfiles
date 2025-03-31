@@ -10,3 +10,7 @@ Add any themes if need be but i love the mac look so install using WhiteSur-gtk.
   <li>Run ./install.sh to install the default WhiteSur GTK theme pack.<br />
 This is an nvidia build so if any issues appear do check the links below.<br />
 https://wiki.hyprland.org/Nvidia/ <br />
+
+
+https://github.com/user-attachments/assets/b9e6f5cb-c5a6-481b-98aa-ccdcfe4e07f2
+
