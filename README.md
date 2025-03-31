@@ -1,5 +1,6 @@
 :snowflake:  Codename:Snowfall :snowflake:
 My personal Hyprland configuration for arch Linux build.<br />
+![image alt](https://github.com/bleu-eve/photo/blob/c38e947b65fc7c8b249688419b8afd9e16109bc1/2025-03-31-165619_hyprshot.png)<br />
 Instructions<br />
 <ul>
 <li>Most files will be dropped in the home directory, edit the hyprland config controls if neeeded.<br />
