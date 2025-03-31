@@ -1,4 +1,4 @@
-:snowflake:  #codename: Snowfall :snowflake:
+:snowflake:  Codename:Snowfall :snowflake:
 My personal Hyprland configuration for arch Linux build.<br />
 Instructions<br />
 <ul>
