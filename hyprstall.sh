@@ -70,7 +70,9 @@ fi
 
 # Install packages by category
 echo "Installing blueve hyprland..."
-install_packages "${PACKAGES[@]}"
+for package in "${PACKAGES[@]}"; do
+yay -S --noconfirm ${PACKAGES}
+done
 
 # Enable services
 echo "Enabling $service..."
