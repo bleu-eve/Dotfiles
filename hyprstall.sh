@@ -45,10 +45,6 @@ Print_logo() {
 EOF
 }
 
-# Clear screen and show logo
-clear
-print_logo
-
 # Exit on any error
 set -e
 
@@ -71,6 +67,11 @@ if ! command -v yay &> /dev/null; then
 else
   echo "yay is already installed"
 fi
+done
+
+if package in ${packages[@]}; do
+yay -S --noconfirm ${package}
+done
 
 packages=(
 7zip
